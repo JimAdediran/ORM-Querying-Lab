@@ -103,6 +103,11 @@ SELECT `school_db_student`.`id`,
 # Print out the instructor's full name and hire date to the terminal
 def problem_two(request):
 
+  instructors = Instructor.objects.filter(hire_date__year__lt = 2010).order_by('hire_date')
+  for instructor in instructors:
+    print(f'Full name: {instructor.first_name} {instructor.last_name} Hire date: {instructor.hire_date}')
+
+
 
 
     return complete(request)
